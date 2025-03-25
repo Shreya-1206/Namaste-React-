@@ -1,4 +1,4 @@
-# Namaste React 02 - Igniting our react app 🔥
+# Igniting our react app 🔥
 
 ## Using Parcel
 - Provides dev build
