@@ -1,0 +1,25 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "react app",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "React",
+    "react",
+    "dom"
+  ],
+  "author": "Shreya",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.14.2"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "browserslist":[
+    "last 2 versions"
+  ]
+}
