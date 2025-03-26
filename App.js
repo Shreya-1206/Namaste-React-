@@ -1,18 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client'
 
-
-
-// React.createElement => converts in react element (Object) => Html element (on reneder)
-const heading = React.createElement('h1', {id :"heading"}, 'Hello, world!')
-
-
 // JSX =>To React.createElement by babel => converts in react element (Object) => Html element (on reneder)       /// multiline jsx
-const jsxHeading =( <h1 
+const jsxHeading =  ( <h1 
     id = "heading" 
     className='head' 
     tabIndex={3}>
         Hello, world 🤩</h1> )
 
+
+///// React Functional Componenet => Nothing but a function that returns JSX
+
+const Heading = () => {
+    return (
+     <>
+      {jsxHeading} 
+      <h1>Welcome to Namaste React 🍄</h1>
+     </>
+    )
+}
+
+/// Here we return in a line rather then using return keyword 
+const Heading2 = () => <h1>Welcome to Namaste React without using return keyword </h1>
+
+
+// wrong way of using JSX
+const Heading3 = () => {
+   <h1>Welcome to Namaste React without using return keyword </h1>
+}
+
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(jsxHeading);
+root.render(<Heading/>);
