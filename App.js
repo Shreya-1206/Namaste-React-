@@ -17,6 +17,7 @@ import ReactDOM from 'react-dom/client'
 //   - Address Component
 //   - Links  Component 
 
+
 const Header = () => {
     return (
         <div className= "header">
@@ -46,39 +47,28 @@ const Body = () => {
              <button>Search</button>
           </div>
           <div className = "res-container">
-            <RestuarantCard/>
-            <RestuarantCard/>
-            <RestuarantCard/>
-            <RestuarantCard/>
-            <RestuarantCard/>
-            <RestuarantCard/>
-            <RestuarantCard/>
-            <RestuarantCard/>
-            <RestuarantCard/>
-            <RestuarantCard/><RestuarantCard/>
-            <RestuarantCard/>
-            <RestuarantCard/>
-            <RestuarantCard/><RestuarantCard/>
-            <RestuarantCard/>
-            <RestuarantCard/>
-            <RestuarantCard/>
-            <RestuarantCard/><RestuarantCard/>
-
-            
+            <RestuarantCard 
+            resName ="Meghna Foods" 
+            resPrice = "Rs. 500" 
+            resRating = "4.5" 
+            resCuisine = {["Briyani", "North Indian"]}
+            resDeliveryTime ="30-40 mins"/>
           </div>
         </div>
     )
 }
 
-const RestuarantCard = () => {
+const RestuarantCard = (props) => {
+    console.log(props);
+    const {resName, resPrice, resRating, resCuisine, resDeliveryTime} = props;
     return (
         <div className = "res-card">
             <img className = "res-image" src = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/e0vvulfbahjxjz6k4uwi"/>
-            <h3 className = "res-name">Meghna Foods</h3>
-            <h4 className = "res-cuisine">North Indian, Briyani, Asian</h4>
+            <h3 className = "res-name">{resName}</h3>
+            <h4 className = "res-cuisine">{resCuisine.join(", ")}</h4>
             <div className = "rating-del-conatainer">
-             <h4 className = "res-rating">4.3 ⭐</h4>
-             <h4 className = "res-deliveryTime">35 - 40 mins</h4>
+             <h4 className = "res-rating">⭐ {resRating}</h4>
+             <h4 className = "res-deliveryTime">{resDeliveryTime}</h4>
             </div>
             <h4 className = "res-place">Central Bangalore</h4>
         </div>
