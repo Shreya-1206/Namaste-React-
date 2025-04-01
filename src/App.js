@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom/client'
+import Header from './components/Header';
+import Body from './components/Body';
 
 // *Header
 //  - Logo Component
@@ -1893,66 +1895,6 @@ const resList = [
       }
     }
   ];
-const Header = () => {
-    return (
-        <div className= "header">
-            <div className = "logo-container">
-                <img className = "logo" src ="https://th.bing.com/th/id/OIP.klm69DJb5MssBNAU6X480QAAAA?rs=1&pid=ImgDetMain"/>
-                <h3 className = "logo-title">Namaste Gastronomy</h3>
-            </div>
-            <div className = "nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                    <li>
-                        <img className = "cart" src = "https://cdn.iconscout.com/icon/free/png-256/free-shopping-cart-icon-download-in-svg-png-gif-file-formats--online-bag-wayfinding-pack-miscellaneous-icons-1211836.png?f=webp&w=256"/>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-
-const Body = () => {
-    return(
-        <div className = "body">
-          <div className = "search-container">
-             <input/>
-             <button>Search</button>
-          </div>
-          <div className = "res-container">
-             {resList.map((restuarant) => (
-                <RestuarantCard 
-                resData = {restuarant} 
-                key = {restuarant.info.id} />
-             ))}
-          </div>
-        </div>
-    )
-}
-
-const RestuarantCard = (props) => {
-
-    const { info } = props.resData;
-    const { name, cloudinaryImageId, cuisines, avgRating, sla, costForTwo, areaName } = info;
-    
-    return (
-          <div className = "res-card">
-            <img className = "res-image" src = {"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+ cloudinaryImageId}/>
-            <h3 className = "res-name">{name}</h3>
-            <p className = "res-cuisine">{cuisines.join(", ")}</p>
-            <div className = "rating-del-conatainer">
-             <h4 className = "res-rating">⭐ {avgRating}</h4>
-             <p className = "res-deliveryTime">{sla.deliveryTime} mintues</p>
-            </div>
-            <div className = "cost-place-container">
-             <p className = "res-costForTwo">{costForTwo}</p>
-             <p className = "res-place">{areaName}</p>
-            </div>   
-        </div>
-    )
-}
 
 const AppLayout = () => {
     return (
