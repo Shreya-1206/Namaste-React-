@@ -8,7 +8,11 @@ const RestuarantCard = (props) => {
           <div className = "res-card">
             <div className="image-container">
                 <img className = "res-image" src = {CLOUDINARY_IMAGE_URL+ cloudinaryImageId}/>
-                <div className="price-tag">{aggregatedDiscountInfoV3.header} {aggregatedDiscountInfoV3.subHeader}</div>
+                {aggregatedDiscountInfoV3 && (
+                    <div className="price-tag">
+                        {aggregatedDiscountInfoV3.header} {aggregatedDiscountInfoV3.subHeader}
+                    </div>
+                )}
             </div>
             <h3 className = "res-name">{name}</h3>
             <p className = "res-cuisine">{cuisines.join(", ")}</p>
