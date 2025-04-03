@@ -204,3 +204,42 @@ h3,h4, p{
     display: flex;
     justify-content: space-between;
 }
+
+
+/* Shimmer ui component */
+
+.shimmer-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+
+.shimmer-card{
+    width: 250px;
+    height: auto;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.image-shimmer{
+    width: 75%;
+    height: 150px; /* Adjust height as needed */
+    background-color: lightgray;
+    border-radius: 8px;
+    padding: 10px;
+    margin-left: 18px;
+    margin-top: 15px;
+}
+
+.shimmer-content {
+    margin-top: 10px;
+    padding :5px;
+    width: 50%;
+    background-color: lightgray;
+    padding: 10px;
+    margin-left: 18px;
+}

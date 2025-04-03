@@ -1,14 +1,39 @@
 import RestuarantCard from "./RestuarantCard";
 import {resList, newOnBoard} from "../utlis/mockData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import ShimmerUi from "./ShimmerUi";
 
 const Body = () => {
   // React State Variable 
-  const [restaurantList, setRestaurantList] = useState(resList);
+  const [restaurantList, setRestaurantList] = useState([]);
 
    //Normal js variable
    let restaurantListJs = resList;
+
+   // UseEffect () hook
+   useEffect(() => {
+      console.log("useEffect Hook is called after the firest render");
+      fetchApiData();
+   }, [])
+
+   
+   const fetchApiData = async () => {
+      const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.815885607372415&lng=80.04042651504278&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+
+      const json = await data.json()
+      console.log("Data - ",json)
+      
+
+      setRestaurantList(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+   }
+
+   
+   if(restaurantList.length === 0){
+      return ( <ShimmerUi/> );
+   }
+
     return(
+      
         <div className = "body">
           <div className = "search-filter-container">
              <div className ="search">
@@ -20,7 +45,7 @@ const Body = () => {
                   <li>
                    <button
                       onClick={() => {
-                        let topRestuarants = restaurantList.filter(res => res.info.avgRating > 4.1);
+                        let topRestuarants = resList.filter(res => res.info.avgRating > 4.1);
                         console.log(topRestuarants)
                         setRestaurantList(topRestuarants);
                       }}
@@ -29,7 +54,7 @@ const Body = () => {
                   <li>
                    <button
                    onClick={() => {
-                     let fastDelivery = restaurantList.filter(res => res.info.sla.deliveryTime <= 25);
+                     let fastDelivery = resList.filter(res => res.info.sla.deliveryTime <= 25);
                      console.log(fastDelivery)
                      setRestaurantList(fastDelivery);
                    }}
